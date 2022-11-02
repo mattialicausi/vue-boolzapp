@@ -53,13 +53,13 @@ body{
 #left-side{
     height: 100%;
     width: calc(100% - 60%);
-    border: 1px solid yellow;
+    background-color: white;
+    border-right: 1px solid gray;
 }
 
 #right-side{
     height: 100%;
     width: calc(100% - 40%);
-    border: 1px solid red;
 }
 
 /* MODIFICO LEFT SIDE */
@@ -111,6 +111,7 @@ body{
     border-radius: 50%;
     color: var(--blueAlert);
     margin-right: 5px;
+    margin-left: 3px;
 }
 
 .testo-1-alert, .testo-2-alert{
@@ -129,6 +130,7 @@ body{
     height: 40px;
     width: 95%;
     outline: none;
+    border: 1px solid gray;
 }
 
 .containerInputcerca{
@@ -171,6 +173,52 @@ body{
     color: grey;
 }
 
+/* MODIFICO RIGHT SIDE */
+#top-right-side, #bottom-right-side{
+    height: 50px;
+    width: 100%;
+}
+
+#main-right-side{
+    height: calc(100% - 100px);
+    width: 100%;
+}
+
+.ultimo-accesso-utente{
+    color: grey;
+    font-size: 0.8rem;
+}
+
+#main-right-side{
+   background-image: url(../img/mine.jpg);
+
+}
+
+/* MODIFICO BOTTOM RIGHT SIDE */
+.container-emoji, .container-registra{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-input-message{
+    width: calc(100% - 80px);
+}
+
+#inputMessage{
+    width: 95%;
+    margin: 10px;
+    outline: none;
+    border-style: inset;
+    border-width: 0;
+    padding: 5px;
+}
+
+.container-emoji i, .container-registra i{
+    color: gray;
+}
 
 
 
