@@ -118,12 +118,13 @@
 
                 <div id="main-right-side">
                     <div id="container-messaggi-ricevuti" class="d-flex justify-content-start"
-                    v-for="(value, index) in listaUtenti" :key="index">
+                    v-for="(value, index) in listaUtenti.messages" :key="index">
 
 
-                        <div class="messaggi-ricevuti rounded-2 d-flex align-items-center justify-content-start">
-                            {{value.messages}}
-                           <div class="container-ora-messaggio">orario</div> 
+                        <div v-if="(value[index].status = 'sent')"
+                        class="messaggi-ricevuti rounded-2 d-flex align-items-center justify-content-start">
+                            {{value[index].message}}
+                           <div class="container-ora-messaggio">{{value[index].date}}</div> 
                         </div>
                         
 
@@ -131,9 +132,10 @@
                     <div id="container-messaggi-inviati" class="d-flex justify-content-end">
 
 
-                        <div class="messaggi-inviati rounded-2 d-flex align-items-center justify-content-end">
-                            contenuto inviato
-                            <div class="container-ora-messaggio"> 15:30</div>
+                        <div v-if="(value[index].status = 'received')
+                        class="messaggi-inviati rounded-2 d-flex align-items-center justify-content-end">
+                        {{value[index].message}}
+                            <div class="container-ora-messaggio"> {{value[index].date}}</div>
                         </div>
                         
                     </div>
