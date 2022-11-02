@@ -5,6 +5,7 @@
     --bar-user: rgb(240, 242, 245);
     --hover-card: rgb(230, 230, 230);
     --blueAlert: rgb(142, 218, 252);
+    --greenMessage: rgb(213, 249, 186);
 }
 
 body{
@@ -174,6 +175,8 @@ body{
 }
 
 /* MODIFICO RIGHT SIDE */
+
+    /* TOP RIGHT SIDE */
 #top-right-side, #bottom-right-side{
     height: 50px;
     width: 100%;
@@ -189,10 +192,44 @@ body{
     font-size: 0.8rem;
 }
 
+    /* MAIN RIGHT SIDE */
 #main-right-side{
    background-image: url(../img/mine.jpg);
-
+   width: 100%;
+   color: black;
 }
+
+#container-messaggi-ricevuti, #container-messaggi-inviati{
+    padding-top: 20px;
+    width: 100%;
+}
+
+.messaggi-inviati, .messaggi-ricevuti{
+    background-color: white;
+    padding: 10px;
+    padding-right: 70px;
+    position: relative;
+}
+
+.messaggi-ricevuti{
+    margin-left: 50px;
+}
+
+.messaggi-inviati{
+    margin-right: 50px;
+    background-color: var(--greenMessage);
+}
+
+.container-ora-messaggio{
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    color: gray;
+    font-size: 8px;
+}
+
+
+
 
 /* MODIFICO BOTTOM RIGHT SIDE */
 .container-emoji, .container-registra{
