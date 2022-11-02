@@ -1,5 +1,10 @@
 /* GENERAL */
-
+:root{
+    --bg-main-top: rgb(74, 164, 134);
+    --bg-main-bt: rgb(226, 224, 221);
+    --bar-user: rgb(240, 242, 245);
+    --hover-card: rgb(230, 230, 230);
+}
 
 body{
     font-family: 'PT Sans', sans-serif;
