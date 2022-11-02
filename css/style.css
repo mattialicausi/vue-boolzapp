@@ -4,8 +4,115 @@
     --bg-main-bt: rgb(226, 224, 221);
     --bar-user: rgb(240, 242, 245);
     --hover-card: rgb(230, 230, 230);
+    --blueAlert: rgb(142, 218, 252);
 }
 
 body{
     font-family: 'PT Sans', sans-serif;
+    width: 100%;
+    height: 100vh;
 }
+
+/* MODIFICHE DIMENSIONI / STILE BG */
+/* #app{
+    width: 100%;
+    height: 100vh;
+} */
+
+#top-bg{
+    width: 100%;
+    height: 100px;
+    background-color: var(--bg-main-top);
+}
+
+#bottom-bg{
+    width: 100%;
+    height: calc(100vh - 100px);
+    background-color: var(--bg-main-bt);
+}
+
+/* MODIFICHE CONTAINER MAIN */
+#container-bg{
+    position: relative;
+}
+
+#container-main{
+    margin: 0 auto;
+    width: 80%;
+    height: 95%;
+    border: 1px solid black;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    z-index: 1000;
+    display: flex;
+}
+
+#left-side{
+    height: 100%;
+    width: calc(100% - 60%);
+    border: 1px solid yellow;
+}
+
+#right-side{
+    height: 100%;
+    width: calc(100% - 40%);
+    border: 1px solid red;
+}
+
+/* MODIFICO LEFT SIDE */
+
+        /* BLOCCO USER */
+.left-side-top{
+    height: 20%;
+    border: 1px solid green;
+}
+
+.left-side-bottom{
+    height: 80%;
+    border: 1px solid purple;
+}
+
+.user{
+    width: 100%;
+    height: 40px;
+    background-color: var(--bar-user);
+}
+
+/* BLOCCO ALERT */
+.alertMyUser{
+    background-color: var(--blueAlert);
+    height: 40px;
+    color: black;
+}
+
+.imgNotifica{
+    height: 40px;
+    width: 40px;
+    background-color: white;
+    border-radius: 50%;
+    color: var(--blueAlert);
+    margin-right: 5px;
+}
+
+.testo-1-alert, .testo-2-alert{
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.testo-2-alert{
+    text-decoration: underline;
+    color: gray;
+    font-size: 0.6rem;
+}
+
+/* BLOCCO INPUT CERCA */
+#cercaChat{
+    height: 40px;
+    width: 95%;
+    outline: none;
+}
+
+
