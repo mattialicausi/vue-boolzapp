@@ -66,19 +66,35 @@ body{
 
         /* BLOCCO USER */
 .left-side-top{
-    height: 20%;
-    border: 1px solid green;
+    height: auto;
 }
 
 .left-side-bottom{
-    height: 80%;
-    border: 1px solid purple;
+    height: calc(100% -120px);
 }
 
 .user{
     width: 100%;
     height: 40px;
     background-color: var(--bar-user);
+}
+
+.container-img-user{
+    margin: 3px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: white;
+}
+.iconMyUser i{
+    padding: 5px;
+    color: gray;
+}
+
+.container-img-user img{
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
 }
 
 /* BLOCCO ALERT */
@@ -89,8 +105,8 @@ body{
 }
 
 .imgNotifica{
-    height: 40px;
-    width: 40px;
+    height: 37px;
+    width: 37px;
     background-color: white;
     border-radius: 50%;
     color: var(--blueAlert);
@@ -114,5 +130,48 @@ body{
     width: 95%;
     outline: none;
 }
+
+.containerInputcerca{
+    padding: 5px;
+}
+
+/* BLOCCO CONTAINER CHAT */
+.container-chat{
+    height: 50px;
+    width: 100%;
+    background-color: white;
+    position: relative;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+
+.container-img{
+    margin: 3px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.container-img img{
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+}
+
+.container-ora-utente{
+    font-size: 10px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+
+.last-message{
+    font-size: 0.8rem;
+    color: grey;
+}
+
+
+
 
 
