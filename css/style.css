@@ -68,6 +68,7 @@ body{
 
 .left-side-bottom{
     height: calc(100% -120px);
+    overflow: auto;
 }
 
 .user{
@@ -181,6 +182,7 @@ body{
 #main-right-side{
     height: calc(100% - 100px);
     width: 100%;
+    overflow: auto;
 }
 
 .ultimo-accesso-utente{
@@ -201,7 +203,6 @@ body{
 }
 
 .messaggi-inviati, .messaggi-ricevuti{
-    background-color: white;
     padding: 10px;
     padding-right: 70px;
     position: relative;
@@ -209,6 +210,7 @@ body{
 
 .messaggi-ricevuti{
     margin-left: 50px;
+    background-color: white;
 }
 
 .messaggi-inviati{
@@ -251,6 +253,12 @@ body{
 
 .container-emoji i, .container-registra i{
     color: gray;
+}
+
+/* EFFETTI HOVER*/
+.container-chat:hover{
+    background-color: var(--hover-card);
+    cursor: pointer;
 }
 
 
