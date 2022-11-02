@@ -1,8 +1,9 @@
 'use strict';
 
-contacts: [ {
+ contacts: [ {
     name: 'Michele',
     avatar: '_1',
+    id: 1,
     visible: true,
     messages: [
         {
@@ -26,6 +27,7 @@ contacts: [ {
 {
     name: 'Fabio',
     avatar: '_2',
+    id: 2,
     visible: true,
     messages: [
         {
@@ -49,6 +51,7 @@ contacts: [ {
 {
     name: 'Samuele',
     avatar: '_3',
+    id: 3,
     visible: true,
     messages: [
         {
@@ -72,6 +75,7 @@ contacts: [ {
 {
     name: 'Alessandro B.',
     avatar: '_4',
+    id: 4,
     visible: true,
     messages: [
         {
@@ -90,6 +94,7 @@ contacts: [ {
 {
     name: 'Alessandro L.',
     avatar: '_5',
+    id: 5,
     visible: true,
     messages: [
     {
@@ -107,6 +112,7 @@ contacts: [ {
 {
     name: 'Claudia',
     avatar: '_6',
+    id: 6,
     visible: true,
     messages: [
         {
@@ -129,6 +135,7 @@ contacts: [ {
 {
     name: 'Federico',
     avatar: '_7',
+    id: 7,
     visible: true,
     messages: [
         {
@@ -146,6 +153,7 @@ contacts: [ {
 {
     name: 'Davide',
     avatar: '_8',
+    id: 8,
     visible: true,
     messages: [
         {
@@ -166,3 +174,21 @@ contacts: [ {
     ],
 } 
 ]
+
+//creo app
+const {createApp} = Vue;
+
+const app = createApp({
+    data(){
+        return{
+            array : contacts
+        }
+    },
+    methods: {
+        //aggiungo metodi
+    },
+    mounted(){
+        //aggiungo mounted
+    }
+});
+app.mount('#app');
