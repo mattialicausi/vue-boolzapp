@@ -4,6 +4,7 @@
         name: 'Michele',
         avatar: '_1',
         id: 1,
+        image: '../img/avatar_1.jpg',
         visible: true,
         messages: [
             {
@@ -27,6 +28,7 @@
         name: 'Fabio',
         avatar: '_2',
         id: 2,
+        image: '../img/avatar_2.jpg',
         visible: true,
         messages: [
             {
@@ -51,6 +53,7 @@
         name: 'Samuele',
         avatar: '_3',
         id: 3,
+        image: '../img/avatar_3.jpg',
         visible: true,
         messages: [
             {
@@ -75,6 +78,7 @@
         name: 'Alessandro B.',
         avatar: '_4',
         id: 4,
+        image: '../img/avatar_4.jpg',
         visible: true,
         messages: [
             {
@@ -94,6 +98,7 @@
         name: 'Alessandro L.',
         avatar: '_5',
         id: 5,
+        image: '../img/avatar_5.jpg',
         visible: true,
         messages: [
         {
@@ -112,6 +117,7 @@
         name: 'Claudia',
         avatar: '_6',
         id: 6,
+        image: '../img/avatar_6.jpg',
         visible: true,
         messages: [
             {
@@ -135,6 +141,7 @@
         name: 'Federico',
         avatar: '_7',
         id: 7,
+        image: '../img/avatar_7.jpg',
         visible: true,
         messages: [
             {
@@ -153,6 +160,7 @@
         name: 'Davide',
         avatar: '_8',
         id: 8,
+        image: '../img/avatar_8.jpg',
         visible: true,
         messages: [
             {

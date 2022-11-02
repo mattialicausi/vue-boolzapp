@@ -68,14 +68,15 @@
 
                     <!-- BLOCCO CHAT -->
                <div class="left-side-bottom">
-                    <div class="container-chat d-flex align-items-center">
+                    <div class="container-chat d-flex align-items-center"
+                    v-for="(valore, index) in listaUtenti" :key="index" >
 
                         <div class="container-img">
-                            <img src="./img/avatar_1.jpg" alt="">
+                            <img :src="valore.image" alt="">
                         </div>
 
                         <div class="container-testo-chat">
-                            <div class="nome-utente">Michele</div>
+                            <div class="nome-utente">{{valore.name}}</div>
                             <div class="last-message">Ultimo messaggio inviato</div>
                         </div>
 
