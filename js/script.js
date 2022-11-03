@@ -191,6 +191,17 @@ const app = createApp({
             newmessage: '',
             searchTerm: '',
             emptyInput: false,
+            listaRisposteRandom: [
+                'Va bene',
+                'Per ora non posso rispondere',
+                'Ti chiamo più tardi',
+                'Ok',
+                'Mi farebbe piacere',
+                'Sto lavorando',
+                'Sto uscendo',
+                'Sto guidando'
+            ],
+
             listaUtenti : contacts
         }
     },
@@ -219,13 +230,19 @@ const app = createApp({
             setTimeout(()=>{
                 const d = new Date();
             let newdate = d.toDateString();
+            const newRandom =Math.floor(Math.random() * 8);
+            const newMessage = this.listaRisposteRandom[newRandom];
+            console.log(newRandom)
+            console.log(newMessage)
+
             const newSentMessage = {
                 date: newdate,
-                message: 'Ok',
+                message: newMessage,
                 status: 'received'
             }
             this.listaUtenti[this.currentChat].messages.push(newSentMessage);
             }, 1000);
+
         },
         getLastmessage(item){
             const msg= item.value.filter((valore)=>{
