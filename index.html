@@ -63,14 +63,14 @@
                         <!-- BLOCCO INPUT CERCA -->
                     <div class="containerInputcerca d-flex justify-content-center mt-1">
                         <input v-model.trim="searchTerm"  type="text" name="cercaChat" id="cercaChat" placeholder="Cerca o inizia una nuova chat"
-                        @keyup="filteredContacts">
+                        @keyup="filteredContacts()">
                     </div>
                </div>
 
                     <!-- BLOCCO CHAT -->
                <div class="left-side-bottom">
-                    <div class="container-chat d-flex align-items-center"
-                    v-for="(valore, index) in filteredContacts" :key="valore.id" 
+                    <div class="container-chat-active d-flex align-items-center"
+                    v-for="(valore, index) in filteredContacts()" :key="valore.id" 
                     @click="getChat(valore.id)">
 
                         <div class="container-img">
@@ -125,7 +125,7 @@
                         <div
                         class="messaggi d-flex align-items-center">
                             {{value.message}}
-                           <div class="container-ora-messaggio ">{{value.date}}</div> 
+                           <div class="container-ora-messaggio d-flex justify-content-end">{{value.date}}</div> 
                         </div>
                         
 

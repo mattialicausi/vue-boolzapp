@@ -194,12 +194,7 @@ const app = createApp({
         }
     },
     computed: {
-        filteredContacts(){
-            return this.listaUtenti.filter((item)=>{
-                const name= item.name.toLowerCase();
-                return name.includes(this.searchTerm.toLowerCase());
-            })
-        } 
+
     },
 
     methods: {
@@ -236,7 +231,13 @@ const app = createApp({
             })
             //console.log(msg);
             return msg[msg.length - 1];
-        }
+        },
+        filteredContacts(){
+            return this.listaUtenti.filter((item)=>{
+                const name= item.name.toLowerCase();
+                return name.includes(this.searchTerm.toLowerCase());
+            })
+        } 
 
         
     },
