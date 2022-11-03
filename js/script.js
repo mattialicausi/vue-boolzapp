@@ -213,6 +213,7 @@ const app = createApp({
                 message: this.newmessage,
                 status: 'sent'
             }
+            
             this.listaUtenti[this.currentChat].messages.push(newSentMessage);
             this.newmessage = '';
             setTimeout(()=>{
@@ -239,18 +240,12 @@ const app = createApp({
                 return name.includes(this.searchTerm.toLowerCase());
             })
         },
-        paperPlaneInput(emptyInput){
-            if(this.newmessage.length > 0){
-            this.emptyInput = true;
-            } 
-            this.emptyInput = !this.emptyInput;
-        }
+
 
         
     },
     mounted(){
         //aggiungo mounted
- 
     }
 });
 app.mount('#app');

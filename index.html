@@ -141,18 +141,18 @@
 
                     <div class="container-input-message">
                         <input v-model.trim ="newmessage" type="text" class="inputMessage" id="inputMessage" placeholder="Scrivi un messaggio"
-                        @keyup.enter="sendMessage">
+                        @keyup.enter="sendMessage" >
                     </div>
 
                     <div class="container-registra">
                         <div class="container-registratore"
-                        v-if="!paperPlaneInput(emptyInput)">
+                        v-if="newmessage.length < 1">
                             <i class="fa-solid fa-microphone"></i>
                         </div>
                         <div 
                        
                         class="container-paperPlane"
-                        v-else="paperPlaneInput(emptyInput)">
+                        v-else="newmessage.length >= 1">
                             <i class="fa-solid fa-paper-plane"></i>
                         </div>
                         
