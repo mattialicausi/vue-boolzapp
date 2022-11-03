@@ -190,6 +190,7 @@ const app = createApp({
             currentChat : 0,
             newmessage: '',
             searchTerm: '',
+            emptyInput: false,
             listaUtenti : contacts
         }
     },
@@ -237,12 +238,19 @@ const app = createApp({
                 const name= item.name.toLowerCase();
                 return name.includes(this.searchTerm.toLowerCase());
             })
-        } 
+        },
+        paperPlaneInput(emptyInput){
+            if(this.newmessage.length > 0){
+            this.emptyInput = true;
+            } 
+            this.emptyInput = !this.emptyInput;
+        }
 
         
     },
     mounted(){
         //aggiungo mounted
+ 
     }
 });
 app.mount('#app');

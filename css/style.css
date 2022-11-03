@@ -171,6 +171,13 @@ body{
     color: grey;
 }
 
+.icon-lente{
+    color: grey;
+    height: 40px;
+    width: 40px;
+    border: 1px solid grey;
+}
+
 /* MODIFICO RIGHT SIDE */
 
     /* TOP RIGHT SIDE */
@@ -257,8 +264,11 @@ body{
     padding: 5px;
 }
 
-.container-emoji i, .container-registra i{
+.container-emoji i, .container-registratore i{
     color: gray;
+}
+.container-paperPlane i{
+    color: blue;
 }
 
 /* EFFETTI HOVER*/
