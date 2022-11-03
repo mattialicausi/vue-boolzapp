@@ -193,29 +193,35 @@ body{
     /* MAIN RIGHT SIDE */
 #main-right-side{
    background-image: url(../img/mine.jpg);
-   width: 100%;
+   /* width: 100%; */
    color: black;
 }
 
-#container-messaggi-ricevuti, #container-messaggi-inviati{
-    padding-top: 20px;
+#container-messaggi{
     width: 100%;
+    margin: 10px;
+    width: 50%;
+    
 }
 
-.messaggi-inviati, .messaggi-ricevuti{
+.messaggi{
     padding: 10px;
     padding-right: 70px;
     position: relative;
 }
 
-.messaggi-ricevuti{
-    margin-left: 50px;
+.received{
+    margin-left: 15px;
     background-color: white;
+    float: left;
+
+
 }
 
-.messaggi-inviati{
-    margin-right: 50px;
+.sent{
+    margin-right: 15px;
     background-color: var(--greenMessage);
+    float: right;
 }
 
 .container-ora-messaggio{

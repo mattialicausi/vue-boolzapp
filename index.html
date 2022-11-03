@@ -62,14 +62,16 @@
 
                         <!-- BLOCCO INPUT CERCA -->
                     <div class="containerInputcerca d-flex justify-content-center mt-1">
-                        <input type="text" name="cercaChat" id="cercaChat" placeholder="Cerca o inizia una nuova chat">
+                        <input v-model.trim="searchTerm"  type="text" name="cercaChat" id="cercaChat" placeholder="Cerca o inizia una nuova chat"
+                        @keyup="filteredContacts">
                     </div>
                </div>
 
                     <!-- BLOCCO CHAT -->
                <div class="left-side-bottom">
                     <div class="container-chat d-flex align-items-center"
-                    v-for="(valore, index) in listaUtenti" :key="index" >
+                    v-for="(valore, index) in filteredContacts" :key="valore.id" 
+                    @click="getChat(valore.id)">
 
                         <div class="container-img">
                             <img :src="valore.image" alt="">
@@ -77,11 +79,11 @@
 
                         <div class="container-testo-chat">
                             <div class="nome-utente">{{valore.name}}</div>
-                            <div class="last-message">Ultimo messaggio inviato</div>
+                            <div class="last-message">{{valore.messages[valore.messages.length -1].message}}</div>
                         </div>
 
                         <div class="container-ora-utente">
-                            <div class="orario-chat">12:00</div>
+                            <div class="orario-chat">{{valore.messages[valore.messages.length -1].date}}</div>
                         </div>
                     </div>
                </div>
@@ -97,16 +99,15 @@
                     <div class="container-chat d-flex align-items-center justify-content-between">
                         <div class="container-obj-utente d-flex align-items-center">
                             <div class="container-img">
-                                <img src="./img/avatar_1.jpg" alt="">
+                                <img :src="'img/avatar' + listaUtenti[currentChat].avatar +'.jpg' " alt="">
                             </div>
     
                             <div class="container-testo-chat">
-                                <div class="nome-utente">Michele</div>
-                                <div class="ultimo-accesso-utente d-flex">Ultimo accesso oggi alle <div class="orario-chat"> 12:00</div></div>
+                                <div class="nome-utente">{{listaUtenti[currentChat].name}}</div>
+                                <div class="ultimo-accesso-utente d-flex">Ultimo accesso alle <div class="orario-chat"> {{listaUtenti[currentChat].messages[listaUtenti[currentChat].messages.length -1].date}}</div></div>
     
                             </div>
                         </div>
-
 
                         <div class="iconMyUser d-flex align-items-center">
                             <i class="fa-solid fa-circle-notch"></i>
@@ -117,27 +118,17 @@
                 </div>
 
                 <div id="main-right-side">
-                    <div id="container-messaggi-ricevuti" class="d-flex justify-content-start"
-                    v-for="(value, index) in listaUtenti.messages" :key="index">
+                    <div id="container-messaggi" class="rounded-2 "
+                    :class="value.status"
+                    v-for="(value, index) in listaUtenti[currentChat].messages" :key="index">
 
-
-                        <div v-if="(value[index].status = 'sent')"
-                        class="messaggi-ricevuti rounded-2 d-flex align-items-center justify-content-start">
-                            {{value[index].message}}
-                           <div class="container-ora-messaggio">{{value[index].date}}</div> 
+                        <div
+                        class="messaggi d-flex align-items-center">
+                            {{value.message}}
+                           <div class="container-ora-messaggio ">{{value.date}}</div> 
                         </div>
                         
 
-                    </div>
-                    <div id="container-messaggi-inviati" class="d-flex justify-content-end">
-
-
-                        <div v-if="(value[index].status = 'received')
-                        class="messaggi-inviati rounded-2 d-flex align-items-center justify-content-end">
-                        {{value[index].message}}
-                            <div class="container-ora-messaggio"> {{value[index].date}}</div>
-                        </div>
-                        
                     </div>
                 </div>
 
@@ -148,7 +139,8 @@
                     </div>
 
                     <div class="container-input-message">
-                        <input type="text" class="inputMessage" id="inputMessage" placeholder="Scrivi un messaggio">
+                        <input v-model.trim ="newmessage" type="text" class="inputMessage" id="inputMessage" placeholder="Scrivi un messaggio"
+                        @keyup.enter="sendMessage">
                     </div>
 
                     <div class="container-registra">

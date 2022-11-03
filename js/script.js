@@ -187,11 +187,58 @@ const {createApp} = Vue;
 const app = createApp({
     data(){
         return{
+            currentChat : 0,
+            newmessage: '',
+            searchTerm: '',
             listaUtenti : contacts
         }
     },
+    computed: {
+        filteredContacts(){
+            return this.listaUtenti.filter((item)=>{
+                const name= item.name.toLowerCase();
+                return name.includes(this.searchTerm.toLowerCase());
+            })
+        } 
+    },
+
     methods: {
-        //aggiungo metodi
+        getChat(id){
+            this.currentChat = this.listaUtenti.findIndex((value)=>{
+                return id === value.id
+            })
+        },
+        sendMessage(){
+            if(!this.newmessage) return;
+            const d = new Date();
+            let newdate = d.toDateString();
+            const newSentMessage = {
+                date: newdate,
+                message: this.newmessage,
+                status: 'sent'
+            }
+            this.listaUtenti[this.currentChat].messages.push(newSentMessage);
+            this.newmessage = '';
+            setTimeout(()=>{
+                const d = new Date();
+            let newdate = d.toDateString();
+            const newSentMessage = {
+                date: newdate,
+                message: 'Ok',
+                status: 'received'
+            }
+            this.listaUtenti[this.currentChat].messages.push(newSentMessage);
+            }, 1000);
+        },
+        getLastmessage(item){
+            const msg= item.value.filter((valore)=>{
+                return valore.status === 'reveived';
+            })
+            //console.log(msg);
+            return msg[msg.length - 1];
+        }
+
+        
     },
     mounted(){
         //aggiungo mounted
