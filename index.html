@@ -119,21 +119,21 @@
                 </div>
 
                 <div id="main-right-side">
-                    <div id="container-messaggi" class="rounded-2 "
+                    <div id="container-messaggi" class="rounded-2 position-relative"
                     :class="value.status"
                     v-for="(value, index) in listaUtenti[currentChat].messages" :key="index" ref="msg">
 
-                        <div class="messaggi d-flex align-items-center" >
-                            {{value.message}}
-                           <div class="container-ora-messaggio d-flex justify-content-end">{{value.date}}</div> 
-                           <div class="deleteMessage" @click="showInfo(index)"><i class="fa-solid fa-caret-down"></i>
+                        <div class="messaggi d-flex align-items-center" v-html="value.message">
+                            
+                        </div>
+                        <div class="container-ora-messaggio d-flex justify-content-end">{{value.date}}</div> 
+                        <div class="deleteMessage" @click="showInfo(index)"><i class="fa-solid fa-caret-down"></i>
 
-                            <div v-if="showinfoMsg.index === index && showinfoMsg.show" class="container-info-message rounded-2">
-                                <div class="info-msg">Info messaggio</div>
-                                <div @click="removeMsg(index)">Cancella messaggio</div>
-                            </div>
-                        </div>
-                        </div>
+                         <div v-if="showinfoMsg.index === index && showinfoMsg.show" class="container-info-message rounded-2">
+                             <div class="info-msg">Info messaggio</div>
+                             <div @click="removeMsg(index)">Cancella messaggio</div>
+                         </div>
+                     </div>
                         
 
                     </div>
@@ -144,7 +144,7 @@
                     <div class="container-emoji position-relative" @click="openEmoji">
                         <i class="fa-regular fa-face-smile"></i>
                         <div class="spawn-emoji rounded-2 d-flex flex-wrap" v-if="showEmoji">
-                            <div v-for="(icon, index) in icons" :key="index" v-html="icon" @click="addEmoji(index)">{{icon}}</div>
+                            <div v-for="(icon, index) in icons" :key="index" v-html="icon" @click="addEmoji(index)"></div>
                         </div>
                     </div>
 
