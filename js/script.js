@@ -191,6 +191,7 @@ const app = createApp({
             newmessage: '',
             searchTerm: '',
             showEmoji: false,
+            staScrivendo: false,
             showinfoMsg: {
                 index: null,
                 show: false
@@ -256,9 +257,6 @@ const app = createApp({
             listaUtenti : contacts
         }
     },
-    computed: {
-
-    },
 
     methods: {
         getChat(id){
@@ -266,6 +264,7 @@ const app = createApp({
                 return id === value.id
             })
         },
+
         sendMessage(){
             if(!this.newmessage) return;
             const options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit'};
@@ -299,23 +298,28 @@ const app = createApp({
             this.$nextTick(()=>{
                 const el= this.$refs.msg[this.$refs.msg.length - 1];
                 el.scrollIntoView();
+
             })
             }, 1000);
+            setTimeout(this.showstaScrivendo(), 1000);
+            setTimeout(this.hidestaScrivendo(), 3000);
 
         },
+
         getLastmessage(item){
             const msg= item.value.filter((valore)=>{
                 return valore.status === 'reveived';
             })
-            //console.log(msg);
             return msg[msg.length - 1];
         },
+
         filteredContacts(){
             return this.listaUtenti.filter((item)=>{
                 const name= item.name.toLowerCase();
                 return name.includes(this.searchTerm.toLowerCase());
             })
         },
+
         showInfo(i){
             if(i === this.showinfoMsg.index && this.showinfoMsg.show){
                 this.showinfoMsg.index = null;
@@ -325,22 +329,37 @@ const app = createApp({
                     this.showinfoMsg.show = true;
                  }
         },
+
         removeMsg(i){
             this.listaUtenti[this.currentChat].messages.splice(i, 1);
             console.log(i)
         },
+
         openEmoji(){
             this.showEmoji = !this.showEmoji
         },
+
         addEmoji(i){
             this.newmessage += this.icons[i];
-        }
+        },
+
+        showstaScrivendo(){
+            if(!this.staScrivendo){
+                this.staScrivendo = !this.staScrivendo;
+                console.log('scrive');
+            }
+        },
+
+        hidestaScrivendo(){
+            if(this.staScrivendo){
+                this.staScrivendo = !this.staScrivendo;
+                console.log('cancella');
+            }
+        },
 
 
         
     },
-    mounted(){
-        //aggiungo mounted
-    }
+
 });
 app.mount('#app');

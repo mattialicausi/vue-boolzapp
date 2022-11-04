@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./js/script.js" defer></script>
     <link rel="stylesheet" href="./css/style.css">
@@ -62,17 +61,16 @@
 
                         <!-- BLOCCO INPUT CERCA -->
                     <div class="containerInputcerca d-flex justify-content-center mt-1">
-                        <span class="icon-lente d-flex justify-content-center align-items-center"><i class="fa-solid fa-magnifying-glass"></i></span>
-                        <input v-model.trim="searchTerm"  type="text" name="cercaChat" id="cercaChat" placeholder="Cerca o inizia una nuova chat"
-                        @keyup="filteredContacts()">
+                        <span class="icon-lente d-flex justify-content-center align-items-center">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </span>
+                        <input v-model.trim="searchTerm"  type="text" name="cercaChat" id="cercaChat" placeholder="Cerca o inizia una nuova chat" @keyup="filteredContacts()">
                     </div>
                </div>
 
                     <!-- BLOCCO CHAT -->
                <div class="left-side-bottom">
-                    <div class="container-chat-active d-flex align-items-center"
-                    v-for="(valore, index) in filteredContacts()" :key="valore.id" 
-                    @click="getChat(valore.id)">
+                    <div class="container-chat-active d-flex align-items-center" v-for="(valore, index) in filteredContacts()" :key="valore.id" @click="getChat(valore.id)">
 
                         <div class="container-img">
                             <img :src="valore.image" alt="">
@@ -80,16 +78,18 @@
 
                         <div class="container-testo-chat">
                             <div class="nome-utente">{{valore.name}}</div> 
-                            <div class="last-message" v-if="valore.messages.length > 0">{{valore.messages[valore.messages.length -1].message}}</div>
+                            <div class="last-message" v-if="valore.messages.length > 0">
+                                {{valore.messages[valore.messages.length -1].message}}
+                            </div>
                         </div>
 
                         <div class="container-ora-utente">
-                            <div class="orario-chat" v-if="valore.messages.length > 0">{{valore.messages[valore.messages.length -1].date}}</div>
+                            <div class="orario-chat" v-if="valore.messages.length > 0">
+                                {{valore.messages[valore.messages.length -1].date}}
+                            </div>
                         </div>
                     </div>
                </div>
-
-
 
                 
             </div>
@@ -105,7 +105,15 @@
     
                             <div class="container-testo-chat">
                                 <div class="nome-utente">{{listaUtenti[currentChat].name}}</div>
-                                <div class="ultimo-accesso-utente d-flex">Ultimo accesso <div class="orario-chat"  v-if="listaUtenti[currentChat].messages.length > 0"> {{listaUtenti[currentChat].messages[listaUtenti[currentChat].messages.length -1].date}}</div></div>
+                                <div class="ultimo-accesso-utente d-flex"> 
+                                    <span>Ultimo accesso  </span> 
+                                    <div class="orario-chat" v-if="listaUtenti[currentChat].messages.length > 0"> 
+                                        {{listaUtenti[currentChat].messages[listaUtenti[currentChat].messages.length -1].date}}
+                                    </div>
+                                    <div class="whileWriting" v-if="staScrivendo">
+                                        Sta scrivendo...
+                                    </div>
+                                </div>
     
                             </div>
                         </div>
@@ -118,14 +126,13 @@
                     </div>
                 </div>
 
-                <div id="main-right-side">
-                    <div id="container-messaggi" class="rounded-2 position-relative"
-                    :class="value.status"
-                    v-for="(value, index) in listaUtenti[currentChat].messages" :key="index" ref="msg">
+                    <!-- MODIFICO MAIN RIGHT SIDE -->
 
-                        <div class="messaggi d-flex align-items-center" v-html="value.message">
-                            
-                        </div>
+                <div id="main-right-side">
+                    <div id="container-messaggi" class="rounded-2 position-relative" :class="value.status" v-for="(value, index) in listaUtenti[currentChat].messages" :key="index" ref="msg">
+
+                        <div class="messaggi d-flex align-items-center" v-html="value.message"> </div>
+
                         <div class="container-ora-messaggio d-flex justify-content-end">{{value.date}}</div> 
                         <div class="deleteMessage" @click="showInfo(index)"><i class="fa-solid fa-caret-down"></i>
 
@@ -134,10 +141,10 @@
                              <div @click="removeMsg(index)">Cancella messaggio</div>
                          </div>
                      </div>
-                        
-
                     </div>
                 </div>
+
+                    <!-- MODIFICO BOTTOM RIGHT SIDE -->
 
                 <div id="bottom-right-side" class="d-flex align-items-center ">
 
@@ -149,13 +156,11 @@
                     </div>
 
                     <div class="container-input-message">
-                        <input v-model.trim ="newmessage" type="text" class="inputMessage" id="inputMessage" placeholder="Scrivi un messaggio"
-                        @keyup.enter="sendMessage" >
+                        <input v-model.trim ="newmessage" type="text" class="inputMessage" id="inputMessage" placeholder="Scrivi un messaggio" @keyup.enter="sendMessage" >
                     </div>
 
                     <div class="container-registra">
-                        <div class="container-registratore"
-                        v-if="newmessage.length < 1">
+                        <div class="container-registratore" v-if="newmessage.length < 1">
                             <i class="fa-solid fa-microphone"></i>
                         </div>
                         <div 
@@ -165,13 +170,10 @@
                         
                             <i class="fa-solid fa-paper-plane"></i>
                         </div>
-                        
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
-
 </body>
 </html>
