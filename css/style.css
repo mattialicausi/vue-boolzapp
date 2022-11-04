@@ -236,6 +236,36 @@ body{
     font-size: 8px;
 }
 
+.deleteMessage{
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
+.container-info-message{
+    position: absolute;
+    top: 20px;
+    right: 0;
+    width: max-content;
+    height: max-content;
+    border: 1px solid gray;
+    background-color: white;
+    padding: 5px;
+}
+
+.container-info-message div:hover{
+    cursor: pointer;
+    background-color: var(--hover-card);
+}
+
+.info-msg{
+    border-bottom: 1px solid black;
+}
+
+.fa-caret-down:hover{
+    cursor: pointer;
+}
+
 /* MODIFICO BOTTOM RIGHT SIDE */
 .container-emoji, .container-registra{
     height: 40px;

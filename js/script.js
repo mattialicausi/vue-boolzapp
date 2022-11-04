@@ -190,6 +190,11 @@ const app = createApp({
             currentChat : 0,
             newmessage: '',
             searchTerm: '',
+            showinfoMsg: {
+                index: null,
+                show: false
+            },
+
             emptyInput: false,
             listaRisposteRandom: [
                 'Va bene',
@@ -217,30 +222,38 @@ const app = createApp({
         },
         sendMessage(){
             if(!this.newmessage) return;
-            const d = new Date();
-            let newdate = d.toDateString();
+            const options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit'};
+            const date = new Date().toLocaleString('it-IT', options);
+
             const newSentMessage = {
-                date: newdate,
+                date: date,
                 message: this.newmessage,
                 status: 'sent'
             }
-            
             this.listaUtenti[this.currentChat].messages.push(newSentMessage);
             this.newmessage = '';
+            this.$nextTick(()=>{
+                const el= this.$refs.msg[this.$refs.msg.length - 1];
+                el.scrollIntoView();
+            });
+
             setTimeout(()=>{
-                const d = new Date();
-            let newdate = d.toDateString();
             const newRandom =Math.floor(Math.random() * 8);
             const newMessage = this.listaRisposteRandom[newRandom];
-            console.log(newRandom)
-            console.log(newMessage)
+
+            const options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit'};
+            const date = new Date().toLocaleString('it-IT', options);
 
             const newSentMessage = {
-                date: newdate,
+                date: date,
                 message: newMessage,
                 status: 'received'
             }
             this.listaUtenti[this.currentChat].messages.push(newSentMessage);
+            this.$nextTick(()=>{
+                const el= this.$refs.msg[this.$refs.msg.length - 1];
+                el.scrollIntoView();
+            })
             }, 1000);
 
         },
@@ -257,6 +270,16 @@ const app = createApp({
                 return name.includes(this.searchTerm.toLowerCase());
             })
         },
+        showInfo(i){
+            if(i === this.showinfoMsg.index && this.showinfoMsg.show){
+                this.showinfoMsg.index = null;
+                this.showinfoMsg.show = false;
+                }else{
+                    this.showinfoMsg.index = i;
+                    this.showinfoMsg.show = true;
+                 }
+
+        }
 
 
         

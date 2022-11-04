@@ -105,7 +105,7 @@
     
                             <div class="container-testo-chat">
                                 <div class="nome-utente">{{listaUtenti[currentChat].name}}</div>
-                                <div class="ultimo-accesso-utente d-flex">Ultimo accesso alle <div class="orario-chat"> {{listaUtenti[currentChat].messages[listaUtenti[currentChat].messages.length -1].date}}</div></div>
+                                <div class="ultimo-accesso-utente d-flex">Ultimo accesso <div class="orario-chat"> {{listaUtenti[currentChat].messages[listaUtenti[currentChat].messages.length -1].date}}</div></div>
     
                             </div>
                         </div>
@@ -121,12 +121,19 @@
                 <div id="main-right-side">
                     <div id="container-messaggi" class="rounded-2 "
                     :class="value.status"
-                    v-for="(value, index) in listaUtenti[currentChat].messages" :key="index">
+                    v-for="(value, index) in listaUtenti[currentChat].messages" :key="index" ref="msg">
 
                         <div
                         class="messaggi d-flex align-items-center">
                             {{value.message}}
                            <div class="container-ora-messaggio d-flex justify-content-end">{{value.date}}</div> 
+                           <div class="deleteMessage" @click="showInfo(index)"><i class="fa-solid fa-caret-down"></i>
+
+                            <div v-if="showinfoMsg.index === index && showinfoMsg.show" class="container-info-message rounded-2">
+                                <div class="info-msg">Info messaggio</div>
+                                <div>Cancella messaggio</div>
+                            </div>
+                        </div>
                         </div>
                         
 
