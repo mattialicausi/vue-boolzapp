@@ -278,7 +278,10 @@ const app = createApp({
                     this.showinfoMsg.index = i;
                     this.showinfoMsg.show = true;
                  }
-
+        },
+        removeMsg(i){
+            this.listaUtenti[this.currentChat].messages.splice(i, 1);
+            console.log(i)
         }
 
 

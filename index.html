@@ -79,12 +79,12 @@
                         </div>
 
                         <div class="container-testo-chat">
-                            <div class="nome-utente">{{valore.name}}</div>
-                            <div class="last-message">{{valore.messages[valore.messages.length -1].message}}</div>
+                            <div class="nome-utente">{{valore.name}}</div> 
+                            <div class="last-message" v-if="valore.messages.length > 0">{{valore.messages[valore.messages.length -1].message}}</div>
                         </div>
 
                         <div class="container-ora-utente">
-                            <div class="orario-chat">{{valore.messages[valore.messages.length -1].date}}</div>
+                            <div class="orario-chat" v-if="valore.messages.length > 0">{{valore.messages[valore.messages.length -1].date}}</div>
                         </div>
                     </div>
                </div>
@@ -105,7 +105,7 @@
     
                             <div class="container-testo-chat">
                                 <div class="nome-utente">{{listaUtenti[currentChat].name}}</div>
-                                <div class="ultimo-accesso-utente d-flex">Ultimo accesso <div class="orario-chat"> {{listaUtenti[currentChat].messages[listaUtenti[currentChat].messages.length -1].date}}</div></div>
+                                <div class="ultimo-accesso-utente d-flex">Ultimo accesso <div class="orario-chat"  v-if="listaUtenti[currentChat].messages.length > 0"> {{listaUtenti[currentChat].messages[listaUtenti[currentChat].messages.length -1].date}}</div></div>
     
                             </div>
                         </div>
@@ -131,7 +131,7 @@
 
                             <div v-if="showinfoMsg.index === index && showinfoMsg.show" class="container-info-message rounded-2">
                                 <div class="info-msg">Info messaggio</div>
-                                <div>Cancella messaggio</div>
+                                <div @click="removeMsg(index)">Cancella messaggio</div>
                             </div>
                         </div>
                         </div>
