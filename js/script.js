@@ -303,7 +303,7 @@ const app = createApp({
             }, 1000);
             setTimeout(this.showstaScrivendo(), 1000);
             setTimeout(this.hidestaScrivendo(), 3000);
-
+            
         },
 
         getLastmessage(item){
