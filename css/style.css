@@ -281,7 +281,7 @@ body{
 
 #inputMessage{
     width: 95%;
-    margin: 10px;
+    margin: 0 auto;
     outline: none;
     border-style: inset;
     border-width: 0;
@@ -291,9 +291,27 @@ body{
 .container-emoji i, .container-registratore i{
     color: gray;
 }
+
+.container-emoji:hover{
+    cursor: pointer;
+}
+
 .container-paperPlane i{
     color: blue;
 }
+
+.spawn-emoji{
+    position: absolute;
+    top: -120px;
+    left: 0;
+    width: 200px;
+    height: max-content;
+    border: 1px solid gray;
+    background-color: white;
+    padding: 5px;
+}
+
+
 
 /* EFFETTI HOVER*/
 .container-chat-active:hover{

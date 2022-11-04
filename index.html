@@ -123,8 +123,7 @@
                     :class="value.status"
                     v-for="(value, index) in listaUtenti[currentChat].messages" :key="index" ref="msg">
 
-                        <div
-                        class="messaggi d-flex align-items-center">
+                        <div class="messaggi d-flex align-items-center" >
                             {{value.message}}
                            <div class="container-ora-messaggio d-flex justify-content-end">{{value.date}}</div> 
                            <div class="deleteMessage" @click="showInfo(index)"><i class="fa-solid fa-caret-down"></i>
@@ -140,10 +139,13 @@
                     </div>
                 </div>
 
-                <div id="bottom-right-side" class="d-flex align-items-center justify-content-between">
+                <div id="bottom-right-side" class="d-flex align-items-center ">
 
-                    <div class="container-emoji">
+                    <div class="container-emoji position-relative" @click="openEmoji">
                         <i class="fa-regular fa-face-smile"></i>
+                        <div class="spawn-emoji rounded-2 d-flex flex-wrap" v-if="showEmoji">
+                            <div v-for="(icon, index) in icons" :key="index" v-html="icon" @click="addEmoji(index)">{{icon}}</div>
+                        </div>
                     </div>
 
                     <div class="container-input-message">

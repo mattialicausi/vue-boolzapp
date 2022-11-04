@@ -4,7 +4,7 @@
         name: 'Michele',
         avatar: '_1',
         id: 1,
-        image: '../img/avatar_1.jpg',
+        image: './img/avatar_1.jpg',
         visible: true,
         messages: [
             {
@@ -28,7 +28,7 @@
         name: 'Fabio',
         avatar: '_2',
         id: 2,
-        image: '../img/avatar_2.jpg',
+        image: './img/avatar_2.jpg',
         visible: true,
         messages: [
             {
@@ -52,7 +52,7 @@
         name: 'Samuele',
         avatar: '_3',
         id: 3,
-        image: '../img/avatar_3.jpg',
+        image: './img/avatar_3.jpg',
         visible: true,
         messages: [
             {
@@ -77,7 +77,7 @@
         name: 'Alessandro B.',
         avatar: '_4',
         id: 4,
-        image: '../img/avatar_4.jpg',
+        image: './img/avatar_4.jpg',
         visible: true,
         messages: [
             {
@@ -97,7 +97,7 @@
         name: 'Alessandro L.',
         avatar: '_5',
         id: 5,
-        image: '../img/avatar_5.jpg',
+        image: './img/avatar_5.jpg',
         visible: true,
         messages: [
         {
@@ -116,7 +116,7 @@
         name: 'Claudia',
         avatar: '_6',
         id: 6,
-        image: '../img/avatar_6.jpg',
+        image: './img/avatar_6.jpg',
         visible: true,
         messages: [
             {
@@ -140,7 +140,7 @@
         name: 'Federico',
         avatar: '_7',
         id: 7,
-        image: '../img/avatar_7.jpg',
+        image: './img/avatar_7.jpg',
         visible: true,
         messages: [
             {
@@ -159,7 +159,7 @@
         name: 'Davide',
         avatar: '_8',
         id: 8,
-        image: '../img/avatar_8.jpg',
+        image: './img/avatar_8.jpg',
         visible: true,
         messages: [
             {
@@ -190,11 +190,57 @@ const app = createApp({
             currentChat : 0,
             newmessage: '',
             searchTerm: '',
+            showEmoji: false,
             showinfoMsg: {
                 index: null,
                 show: false
             },
-
+            icons:[
+                '&#128512;',
+                '&#128513;',
+                '&#128514;',
+                '&#128515;',
+                '&#128516;',
+                '&#128517;',
+                '&#128518;',
+                '&#128519;',
+                '&#128521;',
+                '&#128522;',
+                '&#128523;',
+                '&#128524;',
+                '&#128525;',
+                '&#128526;',
+                '&#128528;',
+                '&#128529;',
+                '&#128530;',
+                '&#128536;',
+                '&#128545;',
+                '&#128548;',
+                '&#128561;',
+                '&#129315;',
+                '&#129299;',
+                '&#129319;',
+                '&#129321;',
+                '&#129325;',
+                '&#129488;',
+                '&#9996;',
+                '&#9995;',
+                '&#10024;',
+                '&#10062;',
+                '&#128064;',
+                '&#128077;',
+                '&#128079;',
+                '&#128152;',
+                '&#128149;',
+                '&#128156;',
+                '&#128158;',
+                '&#128584;',
+                '&#129310;',
+                '&#129505;',
+                '&#127802;',
+                '&#127801;',
+                '&#9749;'
+              ],
             emptyInput: false,
             listaRisposteRandom: [
                 'Va bene',
@@ -282,6 +328,12 @@ const app = createApp({
         removeMsg(i){
             this.listaUtenti[this.currentChat].messages.splice(i, 1);
             console.log(i)
+        },
+        openEmoji(){
+            this.showEmoji = !this.showEmoji
+        },
+        addEmoji(i){
+            this.newmessage += this.icons[i];
         }
 
 
