@@ -16,7 +16,7 @@
 </head>
 <body>
     <div id="app">
-        <div :class="{ 'dark-mode' : darkMode}">
+        <div :class="{ 'dark-mode' : darkMode, 'big-text' : bigText}">
 
             <!-- CONTAINER BACKGROUND COLOR -->
         <div id="container-bg">
@@ -136,7 +136,7 @@
 
                         <div class="iconMyUser d-flex align-items-center">
                             <i class="fa-solid fa-circle-notch cerchio" @click="toggleDarkMode"></i>
-                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-message big-fs" @click="toggleBigtext"></i>
                             <i class="fa-solid fa-ellipsis-vertical dp-menu" @click="showinfochat"></i>
                                 <div class="delete-msg-chat" v-if="showInfoChat">
                                     <div class="delete-chat" @click="deleteAllMsg(currentChat)">Elimina tutti i messaggi</div>

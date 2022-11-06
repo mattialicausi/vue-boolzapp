@@ -196,6 +196,7 @@ const app = createApp({
             showInfoChat: false,
             splashPage: false,
             darkMode: false,
+            bigText: false,
             showinfoMsg: {
                 index: null,
                 show: false
@@ -384,6 +385,10 @@ const app = createApp({
         toggleDarkMode(){
             this.darkMode = !this.darkMode
         },
+
+        toggleBigtext(){
+            this.bigText = !this.bigText
+        }
         
     },
     mounted(){
