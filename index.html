@@ -48,8 +48,8 @@
                             </div>
 
                             <div class="iconMyUser d-flex align-items-center">
-                                <i class="fa-solid fa-circle-notch"></i>
-                                <i class="fa-solid fa-message"></i>
+                                <i class="fa-solid fa-circle-notch icona" @click="toggleDarkMode" :class="{'rotate-icon' : darkMode}"></i>
+                                <i class="fa-solid fa-message icona"  @click="toggleBigtext"></i>
                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                             </div>
                         </div>
@@ -135,9 +135,9 @@
                         </div>
 
                         <div class="iconMyUser d-flex align-items-center">
-                            <i class="fa-solid fa-circle-notch cerchio" @click="toggleDarkMode"></i>
-                            <i class="fa-solid fa-message big-fs" @click="toggleBigtext"></i>
-                            <i class="fa-solid fa-ellipsis-vertical dp-menu" @click="showinfochat"></i>
+                            <i class="fa-solid fa-circle-notch cerchio" @click="toggleDarkMode" :class="{'rotate-icon' : darkMode}"></i>
+                            <i class="fa-solid fa-message icona" @click="toggleBigtext"></i>
+                            <i class="fa-solid fa-ellipsis-vertical icona" @click="showinfochat"></i>
                                 <div class="delete-msg-chat" v-if="showInfoChat">
                                     <div class="delete-chat" @click="deleteAllMsg(currentChat)">Elimina tutti i messaggi</div>
                                     <div @click="deleteChat(currentChat)">Elimina la chat</div>

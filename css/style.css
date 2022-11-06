@@ -234,13 +234,11 @@ body{
     position: relative;
 }
 
-.dp-menu:hover{
+.icona:hover{
     cursor: pointer;
 }
 
-.big-fs:hover{
-    cursor: pointer;
-}
+
 
 .delete-chat{
     border-bottom: 1px solid black;
@@ -409,13 +407,18 @@ body{
 
 .img-splash:hover {
     transform: rotate(360deg);
-    animation-duration: 10000s;
+    animation-duration: 1000s;
     cursor: pointer;
 }
 
 @keyframes ruota {
     from {top: 0px;}
     to {top: 1200px;}
+}
+
+.rotate-icon{
+    transform: rotate(180deg);
+    transition: transform 500ms linear;
 }
 
 
