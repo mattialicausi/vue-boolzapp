@@ -8,6 +8,13 @@
     --greenMessage: rgb(213, 249, 186);
 }
 
+/* DARK MODE */
+.dark-mode{
+    background: black;
+    filter: invert(1) hue-rotate(180deg);
+}
+
+
 body{
     font-family: 'PT Sans', sans-serif;
     width: 100%;
@@ -200,6 +207,10 @@ body{
 .ultimo-accesso-utente{
     color: grey;
     font-size: 0.8rem;
+}
+
+.cerchio:hover{
+    cursor: pointer;
 }
 
 .delete-msg-chat{

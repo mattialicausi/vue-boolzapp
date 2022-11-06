@@ -16,6 +16,7 @@
 </head>
 <body>
     <div id="app">
+        <div :class="{ 'dark-mode' : darkMode}">
 
             <!-- CONTAINER BACKGROUND COLOR -->
         <div id="container-bg">
@@ -41,7 +42,7 @@
                         <div class="user d-flex justify-content-between">
                             <div class="img-user d-flex  align-items-center">
                                 <div class="container-img-user d-flex justify-content-center align-items-center">
-                                    <img src="./img/avatar_io.jpg" alt="img utente">
+                                    <img class="no-filter" src="./img/avatar_io.jpg" alt="img utente">
                                 </div>
                                 <div class="nameMyUser">Sofia</div>
                             </div>
@@ -134,7 +135,7 @@
                         </div>
 
                         <div class="iconMyUser d-flex align-items-center">
-                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-circle-notch cerchio" @click="toggleDarkMode"></i>
                             <i class="fa-solid fa-message"></i>
                             <i class="fa-solid fa-ellipsis-vertical dp-menu" @click="showinfochat"></i>
                                 <div class="delete-msg-chat" v-if="showInfoChat">
@@ -194,6 +195,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </body>
 </html>

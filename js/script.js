@@ -1,7 +1,5 @@
 'use strict';
 
-
-
  let contacts = [ {
         name: 'Michele',
         avatar: '_1',
@@ -197,6 +195,7 @@ const app = createApp({
             userOnline: false,
             showInfoChat: false,
             splashPage: false,
+            darkMode: false,
             showinfoMsg: {
                 index: null,
                 show: false
@@ -379,9 +378,12 @@ const app = createApp({
         },
 
         removeSplashpage(){
-            this.splashPage = !this.splashPage
-            
-        },  
+            this.splashPage = !this.splashPage 
+        }, 
+        
+        toggleDarkMode(){
+            this.darkMode = !this.darkMode
+        },
         
     },
     mounted(){
