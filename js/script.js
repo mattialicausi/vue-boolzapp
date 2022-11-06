@@ -288,10 +288,6 @@ const app = createApp({
             const newRandom =Math.floor(Math.random() * 8);
             const newMessage = this.listaRisposteRandom[newRandom];
 
-            // const options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit'};
-            // const date = new Date().toLocaleString('it-IT', options);
-            
-
             const today = new Date();
             const date = + today.getDate() +'-'+(today.getMonth()+1) +'-' + today.getFullYear();
             const time = today.getHours() + ":" + today.getMinutes();
@@ -366,6 +362,11 @@ const app = createApp({
 
         showinfochat(){
             this.showInfoChat = !this.showInfoChat
+        },
+
+        deleteAllMsg(i){
+            this.listaUtenti[this.currentChat].messages.splice(i);
+            console.log(i)
         }
 
         
