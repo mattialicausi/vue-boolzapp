@@ -360,6 +360,44 @@ body{
     cursor: pointer;
 }
 
+/* SPLASH PAGE */
+#splashPage{
+    background-image: url(../img/mine.jpg);
+    width: 100%;
+    height: calc(100vh - 100px);
+}
+
+.text-splash{
+    font-size: 60px;
+    color: var(--bg-main-top);
+    z-index: 1000;
+}
+
+.img-splash{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-left: 50px;
+    transition-duration: 0.8s;
+    transition-property: transform;
+}
+
+.enter{
+    font-size: 30px;
+    color: var(--bg-main-top);
+}
+
+.img-splash:hover {
+    transform: rotate(360deg);
+    animation-duration: 10000s;
+    cursor: pointer;
+}
+
+@keyframes ruota {
+    from {top: 0px;}
+    to {top: 1200px;}
+}
+
 
 
 

@@ -1,5 +1,7 @@
 'use strict';
 
+
+
  let contacts = [ {
         name: 'Michele',
         avatar: '_1',
@@ -194,6 +196,7 @@ const app = createApp({
             staScrivendo: false,
             userOnline: false,
             showInfoChat: false,
+            splashPage: false,
             showinfoMsg: {
                 index: null,
                 show: false
@@ -375,7 +378,15 @@ const app = createApp({
 
         },
 
+        removeSplashpage(){
+            this.splashPage = !this.splashPage
+            
+        },  
         
+    },
+    mounted(){
+        setTimeout(this.removeSplashpage());
+        //clearInterval(this.removeSplashpage(), 6000)
     },
 
 });

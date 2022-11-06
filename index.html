@@ -16,16 +16,24 @@
 </head>
 <body>
     <div id="app">
+
             <!-- CONTAINER BACKGROUND COLOR -->
         <div id="container-bg">
             <div id="top-bg"></div>
-            <div id="bottom-bg"></div>
+            <div id="bottom-bg">
+                <div id="splashPage" class="d-flex justify-content-center align-items-center" v-if="splashPage">
+                    <span class="text-splash">BOOLZAP</span>
+                    <span>
+                        <img class="img-splash" @click="removeSplashpage" src="./img/avatar_1.jpg" alt="avatar page splash">
+                    </span>
+               </div>
+            </div>
         </div>
 
 
     <!-- CONTAINER MAIN -->
 
-        <div id="container-main">
+        <div id="container-main" v-if="!splashPage">
             <div id="left-side">
                <div class="left-side-top">
                                         <!-- BLOCCO UTENTE -->
