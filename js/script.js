@@ -192,6 +192,7 @@ const app = createApp({
             searchTerm: '',
             showEmoji: false,
             staScrivendo: false,
+            userOnline: false,
             showinfoMsg: {
                 index: null,
                 show: false
@@ -286,11 +287,17 @@ const app = createApp({
             const newRandom =Math.floor(Math.random() * 8);
             const newMessage = this.listaRisposteRandom[newRandom];
 
-            const options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit'};
-            const date = new Date().toLocaleString('it-IT', options);
+            // const options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit'};
+            // const date = new Date().toLocaleString('it-IT', options);
+            
+
+            const today = new Date();
+            const date = + today.getDate() +'-'+(today.getMonth()+1) +'-' + today.getFullYear();
+            const time = today.getHours() + ":" + today.getMinutes();
+            const dateTime = date+' '+time;
 
             const newSentMessage = {
-                date: date,
+                date: dateTime,
                 message: newMessage,
                 status: 'received'
             }
@@ -301,12 +308,12 @@ const app = createApp({
 
             })
             setTimeout(this.showstaScrivendo());
+            setTimeout(this.hideLastAcces());
             }, 1000);
             
             clearInterval(this.showstaScrivendo(), 3000);
+            clearInterval(this.hideLastAcces(), 6000);
 
-        
- 
         },
 
         getLastmessage(item){
@@ -348,18 +355,13 @@ const app = createApp({
 
        showstaScrivendo(){
                 this.staScrivendo = !this.staScrivendo;
-                console.log('scrive');
+                //console.log('scrive');
         },
-  
 
+        hideLastAcces(){
+            this.userOnline = !this.userOnline;
 
-        // hidestaScrivendo(){
-        //     if(this.staScrivendo){
-        //         this.staScrivendo = false;
-        //         console.log('cancella');
-        //     }
-        // },
-
+        },
 
         
     },

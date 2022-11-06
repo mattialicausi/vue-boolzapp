@@ -87,6 +87,7 @@
                             <div class="orario-chat" v-if="valore.messages.length > 0">
                                 {{valore.messages[valore.messages.length -1].date}}
                             </div>
+
                         </div>
                     </div>
                </div>
@@ -105,10 +106,13 @@
     
                             <div class="container-testo-chat">
                                 <div class="nome-utente">{{listaUtenti[currentChat].name}}</div>
-                                <div class="ultimo-accesso-utente d-flex"> 
-                                    <span>Ultimo accesso  </span> 
-                                    <div class="orario-chat" v-if="listaUtenti[currentChat].messages.length > 0"> 
+                                <div class="ultimo-accesso-utente"> 
+                                    <span v-if="!userOnline">Ultimo accesso  </span> 
+                                    <div class="orario-chat" v-if="listaUtenti[currentChat].messages.length > 0 && !userOnline" > 
                                         {{listaUtenti[currentChat].messages[listaUtenti[currentChat].messages.length -1].date}}
+                                    </div>
+                                    <div class="orario-chat" v-if="userOnline">
+                                        Online
                                     </div>
                                     <div class="whileWriting" v-if="staScrivendo">
                                         Sta scrivendo...
