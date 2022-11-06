@@ -193,6 +193,7 @@ const app = createApp({
             showEmoji: false,
             staScrivendo: false,
             userOnline: false,
+            showInfoChat: false,
             showinfoMsg: {
                 index: null,
                 show: false
@@ -362,6 +363,10 @@ const app = createApp({
             this.userOnline = !this.userOnline;
 
         },
+
+        showinfochat(){
+            this.showInfoChat = !this.showInfoChat
+        }
 
         
     },

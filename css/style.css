@@ -197,6 +197,35 @@ body{
     font-size: 0.8rem;
 }
 
+.delete-msg-chat{
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: max-content;
+    height: max-content;
+    border: 1px solid gray;
+    background-color: white;
+    padding: 5px;
+    z-index: 100;
+}
+
+.dp-menu{
+    position: relative;
+}
+
+.dp-menu:hover{
+    cursor: pointer;
+}
+
+.delete-chat{
+    border-bottom: 1px solid black;
+}
+
+.delete-msg-chat div:hover{
+    background-color: var(--hover-card);
+    cursor: pointer;
+}
+
     /* MAIN RIGHT SIDE */
 #main-right-side{
    background-image: url(../img/mine.jpg);
