@@ -178,6 +178,11 @@ body{
     border: 1px solid grey;
 }
 
+.nessuna-chat{
+    text-align: center;
+    font-size: 20px;
+}
+
 /* MODIFICO RIGHT SIDE */
 
     /* TOP RIGHT SIDE */

@@ -70,7 +70,7 @@
 
                     <!-- BLOCCO CHAT -->
                <div class="left-side-bottom">
-                    <div class="container-chat-active d-flex align-items-center" v-for="(valore, index) in filteredContacts()" :key="valore.id" @click="getChat(valore.id)">
+                    <div class="container-chat-active d-flex align-items-center" v-if="listaUtenti.length > 0" v-for="(valore, index) in filteredContacts()" :key="valore.id" @click="getChat(valore.id)">
 
                         <div class="container-img">
                             <img :src="valore.image" alt="">
@@ -90,6 +90,9 @@
 
                         </div>
                     </div>
+                    <div class="nessuna-chat" v-else>
+                        Non hai chat aperte
+                    </div>
                </div>
 
                 
@@ -100,11 +103,11 @@
                 <div id="top-right-side">
                     <div class="container-chat d-flex align-items-center justify-content-between">
                         <div class="container-obj-utente d-flex align-items-center">
-                            <div class="container-img">
+                            <div class="container-img" v-if="listaUtenti.length > 0">
                                 <img :src="'img/avatar' + listaUtenti[currentChat].avatar +'.jpg' " alt="">
                             </div>
     
-                            <div class="container-testo-chat">
+                            <div class="container-testo-chat" v-if="listaUtenti.length > 0">
                                 <div class="nome-utente">{{listaUtenti[currentChat].name}}</div>
                                 <div class="ultimo-accesso-utente"> 
                                     <span v-if="!userOnline">Ultimo accesso  </span> 
@@ -128,7 +131,7 @@
                             <i class="fa-solid fa-ellipsis-vertical dp-menu" @click="showinfochat"></i>
                                 <div class="delete-msg-chat" v-if="showInfoChat">
                                     <div class="delete-chat" @click="deleteAllMsg(currentChat)">Elimina tutti i messaggi</div>
-                                    <div>Elimina la chat</div>
+                                    <div @click="deleteChat(currentChat)">Elimina la chat</div>
                                 </div>
                         </div>
                     </div>
@@ -137,7 +140,7 @@
                     <!-- MODIFICO MAIN RIGHT SIDE -->
 
                 <div id="main-right-side">
-                    <div id="container-messaggi" class="rounded-2 position-relative" :class="value.status" v-for="(value, index) in listaUtenti[currentChat].messages" :key="index" ref="msg">
+                    <div id="container-messaggi" class="rounded-2 position-relative" :class="value.status" v-if="listaUtenti.length > 0" v-for="(value, index) in listaUtenti[currentChat].messages" :key="index" ref="msg">
 
                         <div class="messaggi d-flex align-items-center" v-html="value.message"> </div>
 
@@ -150,6 +153,7 @@
                          </div>
                      </div>
                     </div>
+
                 </div>
 
                     <!-- MODIFICO BOTTOM RIGHT SIDE -->

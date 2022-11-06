@@ -331,10 +331,10 @@ const app = createApp({
             if(i === this.showinfoMsg.index && this.showinfoMsg.show){
                 this.showinfoMsg.index = null;
                 this.showinfoMsg.show = false;
-                }else{
-                    this.showinfoMsg.index = i;
-                    this.showinfoMsg.show = true;
-                 }
+            }else{
+                this.showinfoMsg.index = i;
+                this.showinfoMsg.show = true;
+            }
         },
 
         removeMsg(i){
@@ -366,8 +366,14 @@ const app = createApp({
 
         deleteAllMsg(i){
             this.listaUtenti[this.currentChat].messages.splice(i);
-            console.log(i)
-        }
+            this.showInfoChat = !this.showInfoChat
+        },
+
+        deleteChat(i){
+            this.listaUtenti.splice(i, 1); 
+            this.showInfoChat = !this.showInfoChat
+
+        },
 
         
     },
