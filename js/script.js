@@ -300,10 +300,13 @@ const app = createApp({
                 el.scrollIntoView();
 
             })
+            setTimeout(this.showstaScrivendo());
             }, 1000);
-            setTimeout(this.showstaScrivendo(), 1000);
-            setTimeout(this.hidestaScrivendo(), 3000);
             
+            clearInterval(this.showstaScrivendo(), 3000);
+
+        
+ 
         },
 
         getLastmessage(item){
@@ -343,19 +346,19 @@ const app = createApp({
             this.newmessage += this.icons[i];
         },
 
-        showstaScrivendo(){
-            if(!this.staScrivendo){
+       showstaScrivendo(){
                 this.staScrivendo = !this.staScrivendo;
                 console.log('scrive');
-            }
         },
+  
 
-        hidestaScrivendo(){
-            if(this.staScrivendo){
-                this.staScrivendo = !this.staScrivendo;
-                console.log('cancella');
-            }
-        },
+
+        // hidestaScrivendo(){
+        //     if(this.staScrivendo){
+        //         this.staScrivendo = false;
+        //         console.log('cancella');
+        //     }
+        // },
 
 
         
